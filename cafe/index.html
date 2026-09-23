@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Delight | Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">☕ Cafe Delight</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="manu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="login-highlight">Login</a></li>
+        </ul>
+        <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+</header>
+<section style="display:block">
+    <div class="hero">
+        <h1>Welcome to Cafe Delight</h1>
+        <p>Fresh Coffee, Delicious Food, Beautiful Moments</p>
+        <a href="menu.html" class="btn">Order Now</a>
+    </div>
+    <div class="features">
+        <div class="feature-box"><h3>☕ Fresh Coffee</h3><p>Best quality beans roasted daily</p></div>
+        <div class="feature-box"><h3>🍰 Fresh Bakery</h3><p>Cakes and pastries made fresh</p></div>
+        <div class="feature-box"><h3>🚚 Fast Delivery</h3><p>Delivered in 30 min</p></div>
+    </div>
+</section>
+<div id="cart" class="cart-sidebar"><h2>Your Order 🛒</h2><div id="cart-items"></div><h3>Total: $<span id="total">0.00</span></h3><button class="order-btn" onclick="placeOrder()">Place Order</button><button class="close-btn" onclick="toggleCart()">Close</button></div>
+<footer><p>© 2026 Cafe Delight</p></footer>
+<script src="js/script.js"></script>
+</body>
+</html>

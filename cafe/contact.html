@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Cafe Delight</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #fffaf5;
+            color: #4f2f20;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 70px;
+            background: #633d29;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            color: white;
+            box-shadow: 0 5px 20px rgba(60, 35, 22, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 23px;
+            font-weight: 700;
+            color: #ffd477;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f5c56b;
+            color: #633d29;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ffd477;
+            left: 0;
+            bottom: -7px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffd477;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .login-btn {
+            background: #ffd477;
+            color: #633d29 !important;
+            padding: 9px 19px;
+            border-radius: 25px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 212, 119, 0.3);
+        }
+
+        .login-btn::after {
+            display: none;
+        }
+
+        .cart-btn {
+            background: #ffd477;
+            color: #633d29;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 212, 119, 0.35);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .contact-hero {
+            text-align: center;
+            padding: 70px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coffee-decoration {
+            position: absolute;
+            color: #e9c9a7;
+            font-size: 80px;
+            opacity: 0.18;
+        }
+
+        .coffee-left {
+            left: 7%;
+            top: 50px;
+            transform: rotate(-20deg);
+        }
+
+        .coffee-right {
+            right: 7%;
+            top: 80px;
+            transform: rotate(20deg);
+        }
+
+        .small-title {
+            color: #a96e3d;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .contact-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            color: #4f2f20;
+            margin-bottom: 15px;
+        }
+
+        .contact-hero p {
+            max-width: 600px;
+            margin: auto;
+            color: #826f64;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact-section {
+            max-width: 1150px;
+            margin: 0 auto 80px;
+            padding: 0 25px;
+
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 35px;
+        }
+
+
+        /* =========================
+           CONTACT INFO
+        ========================= */
+
+        .contact-info {
+            background: #633d29;
+            border-radius: 25px;
+            padding: 42px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(83, 48, 29, 0.15);
+        }
+
+        .contact-info::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #8b5738;
+            right: -80px;
+            top: -80px;
+            opacity: 0.4;
+        }
+
+        .contact-info::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #4b2c1e;
+            left: -70px;
+            bottom: -70px;
+        }
+
+        .contact-info h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 31px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info > p {
+            color: #eadbd1;
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
+            background: rgba(255, 212, 119, 0.15);
+            color: #ffd477;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .info-item h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #ffd477;
+        }
+
+        .info-item span {
+            color: #f2e6de;
+            font-size: 13px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .socials a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            background: #ffd477;
+            color: #633d29;
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           FORM CARD
+        ========================= */
+
+        .contact-form-card {
+            background: white;
+            padding: 42px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(78, 48, 31, 0.09);
+            border: 1px solid #f1e4da;
+        }
+
+        .form-heading {
+            margin-bottom: 28px;
+        }
+
+        .form-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            color: #4f2f20;
+            margin-bottom: 7px;
+        }
+
+        .form-heading p {
+            color: #907e73;
+            font-size: 14px;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #604536;
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b28a6c;
+            font-size: 14px;
+        }
+
+        .input-box textarea + i {
+            top: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            border: 1px solid #e7dcd4;
+            background: #fffdfb;
+            border-radius: 12px;
+            padding: 14px 16px 14px 43px;
+            outline: none;
+            color: #4f2f20;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        textarea.form-control {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .form-control::placeholder {
+            color: #b3a49c;
+        }
+
+        .form-control:focus {
+            border-color: #b77a4c;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(183, 122, 76, 0.08);
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            background: #633d29;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .submit-btn:hover {
+            background: #4d2d1e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 61, 41, 0.2);
+        }
+
+        .success-message {
+            display: none;
+            background: #edf8ef;
+            color: #397044;
+            border: 1px solid #cce8d0;
+            padding: 13px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           OPENING HOURS
+        ========================= */
+
+        .hours {
+            max-width: 1150px;
+            margin: -30px auto 70px;
+            padding: 0 25px;
+        }
+
+        .hours-box {
+            background: #f7eee7;
+            border-radius: 20px;
+            padding: 25px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #efdfd1;
+        }
+
+        .hours-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hours-title i {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            color: #9b6037;
+        }
+
+        .hours-title h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+
+        .hours-list {
+            display: flex;
+            gap: 35px;
+            color: #765e4f;
+            font-size: 13px;
+        }
+
+        .hours-list strong {
+            color: #4f2f20;
+            margin-right: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #2f2019;
+            color: #d9c9bf;
+            padding: 30px 8%;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            color: #ffd477;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .footer-content p {
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #ffd477;
+        }
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                min-height: auto;
+            }
+
+            .hours-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .cart-btn {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .contact-hero {
+                padding-top: 50px;
+            }
+
+            .contact-hero h1 {
+                font-size: 38px;
+            }
+
+            .coffee-decoration {
+                display: none;
+            }
+
+            .contact-section {
+                padding: 0 15px;
+            }
+
+            .contact-info,
+            .contact-form-card {
+                padding: 28px 22px;
+                border-radius: 20px;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .hours {
+                padding: 0 15px;
+            }
+
+            .hours-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-links {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-mug-hot"></i>
+            </span>
+            Cafe Delight
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="manu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+
+        <button class="cart-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart (0)
+        </button>
+
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="contact-hero">
+
+        <i class="fa-solid fa-mug-hot coffee-decoration coffee-left"></i>
+        <i class="fa-solid fa-mug-hot coffee-decoration coffee-right"></i>
+
+        <div class="small-title">
+            Get In Touch
+        </div>
+
+        <h1>Contact Us</h1>
+
+        <p>
+            Have a question, suggestion, or just want to say hello?
+            We'd love to hear from you. Drop us a message and our team
+            will get back to you soon.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+
+    <section class="contact-section">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <h2>Let's Talk Coffee ☕</h2>
+
+            <p>
+                Whether you're looking for your favorite coffee,
+                planning a visit, or have a question about our menu,
+                we're always happy to hear from you.
+            </p>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <h4>Visit Us</h4>
+                    <span>123 Coffee Street, Lahore</span>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+                    <h4>Call Us</h4>
+                    <span>+92 300 1234567</span>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+                    <h4>Email Us</h4>
+                    <span>hello@cafedelight.com</span>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <h4>Opening Hours</h4>
+                    <span>Mon - Sun · 8:00 AM - 11:00 PM</span>
+                </div>
+
+            </div>
+
+
+            <!-- SOCIAL ICONS -->
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form-card">
+
+            <div class="form-heading">
+
+                <h2>Send Us a Message</h2>
+
+                <p>
+                    Fill out the form below and we'll get back to you shortly.
+                </p>
+
+            </div>
+
+
+            <div class="success-message" id="successMessage">
+                <i class="fa-solid fa-circle-check"></i>
+                &nbsp; Your message has been sent successfully!
+            </div>
+
+
+            <form id="contactForm">
+
+
+                <div class="input-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-control"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Your Email
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-tag"></i>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            class="form-control"
+                            placeholder="What would you like to talk about?"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <div class="input-box">
+
+                        <textarea
+                            id="message"
+                            class="form-control"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                        <i class="fa-regular fa-message"></i>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+
+                    Send Message
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         OPENING HOURS
+    ========================== -->
+
+    <section class="hours">
+
+        <div class="hours-box">
+
+            <div class="hours-title">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+                    <h3>Come Visit Us</h3>
+                    <p style="font-size:13px;color:#8d796c;">
+                        Your perfect coffee break is waiting.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="hours-list">
+
+                <div>
+                    <strong>Weekdays:</strong>
+                    8:00 AM - 10:00 PM
+                </div>
+
+                <div>
+                    <strong>Weekends:</strong>
+                    8:00 AM - 11:00 PM
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <i class="fa-solid fa-mug-hot"></i>
+                Cafe Delight
+            </div>
+
+            <p>
+                © 2026 Cafe Delight. All rights reserved.
+            </p>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const form = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            successMessage.style.display = "block";
+
+            form.reset();
+
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 5000);

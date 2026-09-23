@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Delight | Menu</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">☕ Cafe Delight</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manu.html" >Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <a href="login.html" class="login-highlight">Login</a>
+        </ul>
+        <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+</header>
+
+<div class="menu-header">
+    <h1>Our Special Menu</h1>
+    <p>Fresh coffee, delicious bakery and fast delivery in 30 mins</p>
+</div>
+
+<section class="menu-section">
+
+    <!-- COFFEE CATEGORY -->
+    <h3 class="category-title">☕ Premium Coffee</h3>
+    <div class="menu-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400">
+            <h3>Premium Espresso</h3>
+            <p class="desc">Strong & aromatic shot</p>
+            <p class="price">Rs. 399</p>
+            <button onclick="addToCart('Premium Espresso', 399, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400">
+            <h3>Creamy Cappuccino</h3>
+            <p class="desc">With steamed milk foam</p>
+            <p class="price">Rs. 499</p>
+            <button onclick="addToCart('Creamy Cappuccino', 499, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400">
+            <h3>Cafe Latte</h3>
+            <p class="desc">Smooth & milky</p>
+            <p class="price">Rs. 450</p>
+            <button onclick="addToCart('Cafe Latte', 450, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400">
+            <h3>Americano</h3>
+            <p class="desc">Black coffee classic</p>
+            <p class="price">Rs. 350</p>
+            <button onclick="addToCart('Americano', 350, this)">Add to Cart 🛒</button>
+        </div>
+    </div>
+
+    <!-- BAKERY CATEGORY -->
+    <h3 class="category-title">🥐 Fresh Bakery</h3>
+    <div class="menu-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400">
+            <h3>Chocolate Donut</h3>
+            <p class="desc">Topped with sprinkles</p>
+            <p class="price">Rs. 299</p>
+            <button onclick="addToCart('Chocolate Donut', 299, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400">
+            <h3>Choco Chip Cookie</h3>
+            <p class="desc">Freshly baked daily</p>
+            <p class="price">Rs. 199</p>
+            <button onclick="addToCart('Choco Chip Cookie', 199, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400">
+            <h3>Chocolate Cake</h3>
+            <p class="desc">Rich & creamy slice</p>
+            <p class="price">Rs. 550</p>
+            <button onclick="addToCart('Chocolate Cake', 550, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400">
+            <h3>Butter Croissant</h3>
+            <p class="desc">Flaky & buttery</p>
+            <p class="price">Rs. 250</p>
+            <button onclick="addToCart('Butter Croissant', 250, this)">Add to Cart 🛒</button>
+        </div>
+    </div>
+
+    <!-- FAST FOOD -->
+    <h3 class="category-title">🍔 Fast Food</h3>
+    <div class="menu-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?w=400">
+            <h3>Chicken Burger</h3>
+            <p class="desc">Juicy grilled chicken</p>
+            <p class="price">Rs. 699</p>
+            <button onclick="addToCart('Chicken Burger', 699, this)">Add to Cart 🛒</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400">
+            <h3>Cheese Pizza</h3>
+            <p class="desc">Small 7 inch</p>
+            <p class="price">Rs. 899</p>
+            <button onclick="addToCart('Cheese Pizza', 899, this)">Add to Cart 🛒</button>
+        </div>
+    </div>
+
+</section>
+
+<!-- CART SIDEBAR - Zaroori hai -->
+<div id="cart" class="cart-sidebar">
+    <h2 style="color:#5d3a29; margin-bottom:15px;">Your Order 🛒</h2>
+    <div id="cart-items"></div>
+    <h3 style="margin-top:15px;">Total: Rs. <span id="total">0</span></h3>
+    <button class="order-btn" onclick="placeOrder()">Place Order</button>
+    <button class="close-btn" onclick="toggleCart()">Close</button>
+</div>
+
+<footer style="background:#2c1e17; color:white; text-align:center; padding:15px; font-size:12px;">
+    <p>© 2026 Cafe Delight - All Rights Reserved</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
