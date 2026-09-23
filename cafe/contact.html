@@ -557,16 +557,112 @@
         }
 
 
-        /* =========================
-           MOBILE MENU
-        ========================= */
+       /* =========================
+   MOBILE MENU
+========================= */
 
-        .menu-toggle {
-            display: none;
-            color: white;
-            font-size: 23px;
-            cursor: pointer;
-        }
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #633d29;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 5% 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* This class opens the menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 14px 10px;
+        display: block;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .cart-btn {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Rest of your existing mobile CSS */
+    .contact-hero {
+        padding-top: 50px;
+    }
+
+    .contact-hero h1 {
+        font-size: 38px;
+    }
+
+    .coffee-decoration {
+        display: none;
+    }
+
+    .contact-section {
+        padding: 0 15px;
+    }
+
+    .contact-info,
+    .contact-form-card {
+        padding: 28px 22px;
+        border-radius: 20px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hours {
+        padding: 0 15px;
+    }
+
+    .hours-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-links {
+        display: none;
+    }
+}
+
 
 
         /* =========================
@@ -688,9 +784,10 @@
             Cart (0)
         </button>
 
-        <div class="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
+       <button class="menu-toggle" id="menuToggle" type="button">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
 
     </nav>
 
@@ -1034,19 +1131,47 @@
          JAVASCRIPT
     ========================== -->
 
-    <script>
+   <script>
 
-        const form = document.getElementById("contactForm");
-        const successMessage = document.getElementById("successMessage");
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
 
-        form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function(event) {
 
-            event.preventDefault();
+    event.preventDefault();
 
-            successMessage.style.display = "block";
+    successMessage.style.display = "block";
 
-            form.reset();
+    form.reset();
 
-            setTimeout(() => {
-                successMessage.style.display = "none";
-            }, 5000);
+    setTimeout(() => {
+        successMessage.style.display = "none";
+    }, 5000);
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", function () {
+
+    navLinks.classList.toggle("active");
+
+    const icon = menuToggle.querySelector("i");
+
+    if (navLinks.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
+
+});
+
+</script>
